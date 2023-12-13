@@ -1,10 +1,10 @@
 import React, { FC } from 'react';
 import SearchGenerator from './SearchGenerator';
-import './App.css';
+import styles from './App.module.css'
 
 const App: FC = () => {
   return (
-    <div className="App"><SearchGenerator/></div>
+    <div className={styles.App}><SearchGenerator/></div>
     )
 };
 

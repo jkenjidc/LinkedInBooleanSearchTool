@@ -1,4 +1,5 @@
 import React from 'react'
+import styles from './SearchGenerator.module.css'
 
 const SearchGenerator = () => {
 
@@ -74,8 +75,9 @@ const SearchGenerator = () => {
         }
     }
   return (
-    <div className = "main-container">
-        <h1> Boolean Search Generator </h1>
+    
+    <div className = {styles.Container}>
+        <p id="title" className={styles.Heading}> BOOLEAN SEARCH GENERATOR </p>
         <input type="text" placeholder='enter word' id="include"/>
         <button  onClick={()=>handleButtonClick('add')}> Add </button>
         <input type="text" placeholder='enter word' id="exclude"/>
@@ -84,7 +86,8 @@ const SearchGenerator = () => {
         <button onClick={()=>handleButtonClick('save')}> save </button>
         <button onClick={()=>handleButtonClick('load')}> load</button>
         <button onClick={()=>handleButtonClick('copy')}> copy</button>
-        <p id="display"/>
+        <p className = {styles.Display} id="display"/>
+        
     </div>
   )
 }
