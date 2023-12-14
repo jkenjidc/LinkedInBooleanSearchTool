@@ -1,10 +1,11 @@
 .Heading {
-    font-size: 56px;
+    font-size: 75px;
     font-family: Helvetica, sans-serif;
     font-weight: 700;
     letter-spacing: 0.02px;
     color: #FFFFFF;
     padding-top: 56px;
+    padding-bottom: 24px;
     margin: 0;
     
 }
@@ -26,6 +27,83 @@
     background-color: #282626;
     width: 90%;
     height:50%;
-    font-size: 23px;
+    font-size: 35px;
     font-family: Helvetica, sans-serif;
 }
+
+.Buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+    font-size: 23px;
+    font-family: Helvetica, sans-serif;
+    padding: 10px;
+    
+}
+.Inputs{
+    display:flex;
+    flex-direction: column;
+    padding: inherit;
+    width: 35%;
+}
+::placeholder {
+    color: #FFFFFF; 
+}
+
+.Include {
+    background-color: #71B7FB;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+    padding: inherit;
+    font-size: inherit;
+    font-family: inherit;
+}
+
+.Exclude {
+    background-color: #B65A40;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+    padding: inherit;
+    font-size: inherit;
+    font-family: inherit;
+}
+
+.Clear{
+    background-color: #D94141;
+    color: #FFFFFF;
+    font-size: inherit;
+    font-family: inherit;
+    padding: inherit;
+    width: 15%;
+}
+
+.Save{
+    background-color: #33B58A;
+    color: #FFFFFF;
+    font-size: inherit;
+    font-family: inherit;
+    padding: inherit;
+    width: 15%;
+}
+
+.Load{
+    background-color: #abb92b;
+    color: #FFFFFF;
+    font-size: inherit;
+    font-family: inherit;
+    padding: inherit;
+    width: 15%;
+}
+
+.Copy{
+    background-color: #BBBCBD;
+    color: #FFFFFF;
+    font-size: inherit;
+    font-family: inherit;
+    padding: inherit;
+    width: 15%;
+}
+
+
+

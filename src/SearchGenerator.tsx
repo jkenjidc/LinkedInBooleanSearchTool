@@ -78,15 +78,23 @@ const SearchGenerator = () => {
     
     <div className = {styles.Container}>
         <p id="title" className={styles.Heading}> BOOLEAN SEARCH GENERATOR </p>
-        <input type="text" placeholder='enter word' id="include"/>
-        <button  onClick={()=>handleButtonClick('add')}> Add </button>
-        <input type="text" placeholder='enter word' id="exclude"/>
-        <button onClick={()=>handleButtonClick('ignore')}> ignore </button>
-        <button onClick={()=>handleButtonClick('clear')}> clear </button>
-        <button onClick={()=>handleButtonClick('save')}> save </button>
-        <button onClick={()=>handleButtonClick('load')}> load</button>
-        <button onClick={()=>handleButtonClick('copy')}> copy</button>
+        <div className={styles.Buttons}>
+            <div className={styles.Inputs}>
+                <input className={styles.Include} type="text" placeholder='Type word to include' id="include"/>
+                <button  className={styles.Include} onClick={()=>handleButtonClick('add')}> Include </button>
+            </div>
+            <div className={styles.Inputs}>
+                <input  className={styles.Exclude}type="text" placeholder='Type word to exclude'  id="exclude"/>
+                <button  className={styles.Exclude}onClick={()=>handleButtonClick('ignore')}> Exclude </button>
+            </div>
+        </div>
         <p className = {styles.Display} id="display"/>
+        <div className={styles.Buttons}>
+            <button className = {styles.Clear} onClick={()=>handleButtonClick('clear')}> clear </button>
+            <button className = {styles.Save} onClick={()=>handleButtonClick('save')}> save </button>
+            <button className = {styles.Load} onClick={()=>handleButtonClick('load')}> load</button>
+            <button className = {styles.Copy} onClick={()=>handleButtonClick('copy')}> copy</button>
+        </div>
         
     </div>
   )
