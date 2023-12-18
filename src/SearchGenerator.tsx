@@ -3,31 +3,12 @@ import styles from './SearchGenerator.module.css'
 
 const SearchGenerator = () => {
 
-    function showMessage(message: string) {
-        // Create a modal element
-        const modal = document.createElement('div');
-        modal.className = 'modal';
-        modal.style.textAlign = "center";
-        modal.innerHTML = `<p>${message}</p>`;
-        
-        // Append the modal to the body
-        document.body.appendChild(modal);
-    
-        // Add a button to close the modal
-        const closeButton = document.createElement('button');
-        closeButton.textContent = 'Close';
-        closeButton.onclick = () => {
-            document.body.removeChild(modal);
-        };
-        modal.appendChild(closeButton);
-    }
-
     function handleButtonClick(command: string) {
         const display = document.getElementById('display');
         let current = display?.innerHTML
         let exclude = (document.getElementById('exclude')as HTMLInputElement).value
         let include = (document.getElementById('include')as HTMLInputElement).value
-
+        let modal = document.getElementById('myModal');
         const add = () => {
             if (current === '' && include !== '' ){
                 display!.innerHTML = `"${include}"`;
@@ -65,9 +46,13 @@ const SearchGenerator = () => {
                 display!.innerHTML = cachedSearch as string;
                 break;
             case 'copy':
-                if (current !== undefined){
-                    navigator.clipboard.writeText(display!.innerHTML);
-                    showMessage('Copied Sucessfully');
+                if (current !== undefined && modal){
+                    modal.style.display = 'block';
+                }
+                break;
+            case 'closeModal':
+                if (modal){
+                    modal.style.display = 'none';
                 }
                 break;
             default:
@@ -81,11 +66,11 @@ const SearchGenerator = () => {
         <div className={styles.Buttons}>
             <div className={styles.Inputs}>
                 <input className={styles.Include} type="text" placeholder='Type word to include' id="include"/>
-                <button  className={styles.Include} onClick={()=>handleButtonClick('add')}> Include </button>
+                <button  className={styles.IncludeButton} onClick={()=>handleButtonClick('add')}> Include </button>
             </div>
             <div className={styles.Inputs}>
                 <input  className={styles.Exclude}type="text" placeholder='Type word to exclude'  id="exclude"/>
-                <button  className={styles.Exclude}onClick={()=>handleButtonClick('ignore')}> Exclude </button>
+                <button  className={styles.ExcludeButton}onClick={()=>handleButtonClick('ignore')}> Exclude </button>
             </div>
         </div>
         <p className = {styles.Display} id="display"/>
@@ -94,6 +79,12 @@ const SearchGenerator = () => {
             <button className = {styles.Save} onClick={()=>handleButtonClick('save')}> save </button>
             <button className = {styles.Load} onClick={()=>handleButtonClick('load')}> load</button>
             <button className = {styles.Copy} onClick={()=>handleButtonClick('copy')}> copy</button>
+        </div>
+        <div id="myModal" className= {styles.modal}>
+            <div className={styles.modalContent}>
+            <span onClick={()=>handleButtonClick('closeModal')} className= {styles.close}>&times;</span>
+            <p>Copied Sucessfully!</p>
+            </div>
         </div>
         
     </div>

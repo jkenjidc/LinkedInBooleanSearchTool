@@ -39,6 +39,7 @@
     font-size: 23px;
     font-family: Helvetica, sans-serif;
     padding: 10px;
+    border-radius: 15px;
     
 }
 .Inputs{
@@ -59,6 +60,17 @@
     font-size: inherit;
     font-family: inherit;
 }
+.IncludeButton {
+    background-color: #71B7FB;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+    padding: inherit;
+    font-size: inherit;
+    font-family: inherit;
+    border-radius: 15px;
+    width: 60%;
+    align-self: center;
+}
 
 .Exclude {
     background-color: #B65A40;
@@ -68,6 +80,17 @@
     font-size: inherit;
     font-family: inherit;
 }
+.ExcludeButton {
+    background-color: #B65A40;
+    color: #FFFFFF;
+    margin-bottom: 20px;
+    padding: inherit;
+    font-size: inherit;
+    font-family: inherit;
+    border-radius: 15px;
+    width: 60%;
+    align-self: center;
+}
 
 .Clear{
     background-color: #D94141;
@@ -76,6 +99,7 @@
     font-family: inherit;
     padding: inherit;
     width: 15%;
+    border-radius: inherit;
 }
 
 .Save{
@@ -85,6 +109,7 @@
     font-family: inherit;
     padding: inherit;
     width: 15%;
+    border-radius: inherit;
 }
 
 .Load{
@@ -94,6 +119,7 @@
     font-family: inherit;
     padding: inherit;
     width: 15%;
+    border-radius: inherit;
 }
 
 .Copy{
@@ -103,7 +129,46 @@
     font-family: inherit;
     padding: inherit;
     width: 15%;
+    border-radius: inherit;
 }
 
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(10, 10, 10, 0.5);
+}
+
+.modalContent {
+    background-color: #3f3b3b;
+    color:rgb(238, 238, 238);
+
+    border: solid #71B7FB;
+    margin: 15% auto;
+    padding: 20px;
+    width: 40%;
+    font-size: 35px;
+    font-family: Helvetica, sans-serif;
+    font-weight: 300;
+}
+
+.close {
+    color: #f7f3f3;
+    float: right;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: rgb(157, 82, 82);
+    text-decoration: none;
+    cursor: pointer;
+}
 
 
