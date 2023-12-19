@@ -1,3 +1,11 @@
+.Header{
+    width:100%;
+    height:5%;
+    background-color: #282626;
+    margin-top: 0;
+    padding-top: 0;
+}
+
 .Heading {
     font-size: 75px;
     font-family: Helvetica, sans-serif;
@@ -13,25 +21,38 @@
     display: flex;
     flex-direction: column;
     width: 100%;
-    height: 100vh;
-    justify-content: center;
+    height: 100%;
     align-items: center;
+    margin:0;
+    padding:0;
     
 }
 
 .Display{
-    padding-top: 30px;
+    padding: 30px;
     display: flex;
-    justify-content: center;
+    align-items: flex-start;
     color: #FFFFFF;
     background-color: #282626;
     width: 90%;
-    height:50%;
+    height:45%;
     font-size: 35px;
     font-family: Helvetica, sans-serif;
 }
 
 .Buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 90%;
+    font-size: 23px;
+    font-family: Helvetica, sans-serif;
+    padding: 10px;
+    border-radius: 15px;
+    
+}
+
+.BottomButtons{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -72,6 +93,12 @@
     align-self: center;
 }
 
+.IncludeButton:hover {
+    background-color: #3687d8;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 .Exclude {
     background-color: #B65A40;
     color: #FFFFFF;
@@ -91,6 +118,11 @@
     width: 60%;
     align-self: center;
 }
+.ExcludeButton:hover {
+    background-color: #943c24;
+    text-decoration: none;
+    cursor: pointer;
+}
 
 .Clear{
     background-color: #D94141;
@@ -101,6 +133,12 @@
     width: 15%;
     border-radius: inherit;
 }
+.Clear:hover {
+    background-color: #9b1b1b;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 
 .Save{
     background-color: #33B58A;
@@ -112,14 +150,29 @@
     border-radius: inherit;
 }
 
+.Save:hover {
+    background-color: #058b5f;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+
 .Load{
-    background-color: #abb92b;
+    background-color: #71B7FB;
     color: #FFFFFF;
     font-size: inherit;
     font-family: inherit;
     padding: inherit;
     width: 15%;
     border-radius: inherit;
+}
+
+.Load:hover,
+.Load:focus {
+    background-color: #3687d8;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .Copy{
@@ -130,6 +183,11 @@
     padding: inherit;
     width: 15%;
     border-radius: inherit;
+}
+.Copy:hover {
+    background-color: #5f6265;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .modal {
@@ -169,6 +227,21 @@
     color: rgb(157, 82, 82);
     text-decoration: none;
     cursor: pointer;
+}
+
+.Footer{
+    width:100%;
+    height:5%;
+    background-color: #282626;
+    position: absolute;
+    padding-top: 10px;
+    bottom: 0;
+    width: 100%;
+    color: #fff;
+    text-align: center;
+    font-size: 35px;
+    font-family: Helvetica, sans-serif;
+    font-weight: 300;
 }
 
 
