@@ -22,7 +22,7 @@ const SearchGenerator = () => {
 
         const ignore = () => {
             if (exclude !== '' && current !== ''){
-                display!.innerHTML = `${current} AND NOT "${exclude}"`;
+                display!.innerHTML = `${current} NOT "${exclude}"`;
                 (document.getElementById('exclude')as HTMLInputElement).value = '';
             }
 
@@ -53,6 +53,7 @@ const SearchGenerator = () => {
             case 'copy':
                 if (current !== "" && modal){
                     modal.style.display = 'block';
+                    navigator.clipboard.writeText(current as string)
                     message!.innerHTML = "Copied Sucessfully"
                 }
                 break;
