@@ -67,7 +67,7 @@ const SearchGenerator = () => {
   return (
     
     <div className = {styles.Container}>
-        {/* <div className = {styles.Header}>sdsdsdds</div> */}
+        <div className = {styles.Header}>?</div>
         <p id="title" className={styles.Heading}> BOOLEAN SEARCH GENERATOR </p>
         <div className={styles.Buttons}>
             <div className={styles.Inputs}>
@@ -92,8 +92,8 @@ const SearchGenerator = () => {
             <p id="modalMessage"></p>
             </div>
         </div>
-        <div className = {styles.Footer}>Footer</div>
-
+{/*         <div className = {styles.Footer}>Footer</div>
+ */}
         
     </div>
   )
