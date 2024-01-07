@@ -67,7 +67,7 @@ const SearchGenerator = () => {
   return (
     
     <div className = {styles.Container}>
-        <div className = {styles.Header}>?</div>
+        <div className = {styles.Header}><a href="https://www.linkedin.com/help/linkedin/answer/a524335">?</a></div>
         <p id="title" className={styles.Heading}> BOOLEAN SEARCH GENERATOR </p>
         <div className={styles.Buttons}>
             <div className={styles.Inputs}>
