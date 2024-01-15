@@ -85,12 +85,14 @@ const SearchGenerator = () => {
             <button className = {styles.Save} onClick={()=>handleButtonClick('save')}> save </button>
             <button className = {styles.Load} onClick={()=>handleButtonClick('load')}> load</button>
             <button className = {styles.Copy} onClick={()=>handleButtonClick('copy')}> copy</button>
+            <button className = {styles.Copy} onClick={()=>handleButtonClick('edit')}> edit</button>
         </div>
         <div id="myModal" className= {styles.modal}>
             <div className={styles.modalContent}>
             <span onClick={()=>handleButtonClick('closeModal')} className= {styles.close}>&times;</span>
             <p id="modalMessage"></p>
             </div>
+            <p>test</p>
         </div>
 {/*         <div className = {styles.Footer}>Footer</div>
  */}
