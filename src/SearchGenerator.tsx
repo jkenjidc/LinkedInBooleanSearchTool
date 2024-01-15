@@ -92,7 +92,6 @@ const SearchGenerator = () => {
             <span onClick={()=>handleButtonClick('closeModal')} className= {styles.close}>&times;</span>
             <p id="modalMessage"></p>
             </div>
-            <p>test</p>
         </div>
 {/*         <div className = {styles.Footer}>Footer</div>
  */}
