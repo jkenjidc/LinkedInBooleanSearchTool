@@ -1,7 +1,18 @@
 import React from 'react'
 import styles from './SearchGenerator.module.css'
-
+//console.log("page hass loaded");
 const SearchGenerator = () => {
+    let includes:string[] = JSON.parse(localStorage.getItem("prevIncludes") ?? "[]")
+    let excludes:string[] = JSON.parse(localStorage.getItem("prevExcludes") ?? "[]")
+    if (document.readyState === "complete") {
+        // If the page is already loaded, execute the function immediately
+        handleButtonClick("load");
+    } else {
+        // If the page is not yet loaded, add an event listener to execute the function when the page is fully loaded
+        window.addEventListener("load", ()=>{
+            handleButtonClick("load");
+        });
+    }
 
     function handleButtonClick(command: string) {
         const display = document.getElementById('display');
@@ -9,19 +20,23 @@ const SearchGenerator = () => {
         const exclude = (document.getElementById('exclude')as HTMLInputElement).value
         const include = (document.getElementById('include')as HTMLInputElement).value
         const modal = document.getElementById('myModal');
+        const editModal = document.getElementById('editModal');
         const message = document.getElementById('modalMessage');
         
         const add = () => {
             if (current === '' && include !== '' ){
                 display!.innerHTML = `"${include}"`;
+                includes.push(include);
             }else if(include !== ''){
                 display!.innerHTML = `"${include}" OR ${current}`;
+                includes.push(include);
             }
             (document.getElementById('include')as HTMLInputElement).value = ''
         }
 
         const ignore = () => {
             if (exclude !== '' && current !== ''){
+                excludes.push(exclude)
                 display!.innerHTML = `${current} NOT "${exclude}"`;
                 (document.getElementById('exclude')as HTMLInputElement).value = '';
             }
@@ -41,6 +56,8 @@ const SearchGenerator = () => {
             case 'save':
                 if (current !== ''){
                     localStorage.setItem('prevResult',current!);
+                    localStorage.setItem('prevIncludes',JSON.stringify(includes))
+                    localStorage.setItem('prevExcludes',JSON.stringify(excludes))
                     modal!.style.display = 'block';
                     message!.innerHTML = "Saved Sucessfully"
                 }
@@ -59,6 +76,13 @@ const SearchGenerator = () => {
                 break;
             case 'closeModal':
                     modal!.style.display = 'none';
+                    editModal!.style.display = 'none';
+                break;
+            case 'edit':
+                if (excludes && includes && editModal){
+                    console.log(excludes, includes);
+                    editModal.style.display = 'block';
+                }
                 break;
             default:
                 break;
@@ -91,6 +115,12 @@ const SearchGenerator = () => {
             <div className={styles.modalContent}>
             <span onClick={()=>handleButtonClick('closeModal')} className= {styles.close}>&times;</span>
             <p id="modalMessage"></p>
+            </div>
+        </div>
+        <div id="editModal" className= {styles.modal}>
+            <div className={styles.modalContent}>
+            <span onClick={()=>handleButtonClick('closeModal')} className= {styles.close}>&times;</span>
+            <p>test</p>
             </div>
         </div>
 {/*         <div className = {styles.Footer}>Footer</div>
