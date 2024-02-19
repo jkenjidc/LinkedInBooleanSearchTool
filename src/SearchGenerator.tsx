@@ -5,10 +5,8 @@ const SearchGenerator = () => {
     let includes:string[] = JSON.parse(localStorage.getItem("prevIncludes") ?? "[]")
     let excludes:string[] = JSON.parse(localStorage.getItem("prevExcludes") ?? "[]")
     if (document.readyState === "complete") {
-        // If the page is already loaded, execute the function immediately
         handleButtonClick("load");
     } else {
-        // If the page is not yet loaded, add an event listener to execute the function when the page is fully loaded
         window.addEventListener("load", ()=>{
             handleButtonClick("load");
         });
@@ -27,11 +25,30 @@ const SearchGenerator = () => {
             if (current === '' && include !== '' ){
                 display!.innerHTML = `"${include}"`;
                 includes.push(include);
+                edit();
             }else if(include !== ''){
                 display!.innerHTML = `"${include}" OR ${current}`;
                 includes.push(include);
+                edit();
             }
             (document.getElementById('include')as HTMLInputElement).value = ''
+        }
+
+        const edit = () => {
+            const tableBody = document.querySelector("#myTable tbody");
+            if (tableBody) {
+                const len = includes.length > excludes.length ?  includes.length : excludes.length;
+                for (let i = 0; i < len; i++) {
+                    const row = document.createElement("tr");
+                    let currInc = includes[i] ? includes[i] : ""
+                    let currExc = excludes[i] ? excludes[i] : ""
+                    row.innerHTML = `
+                    <td>${currInc}</td>
+                    <td>${currExc}</td>
+                    `;
+                tableBody.appendChild(row);
+                }
+            }
         }
 
         const ignore = () => {
@@ -39,16 +56,17 @@ const SearchGenerator = () => {
                 excludes.push(exclude)
                 display!.innerHTML = `${current} NOT "${exclude}"`;
                 (document.getElementById('exclude')as HTMLInputElement).value = '';
+                edit();
             }
 
         }
     
         switch (command) {
             case 'add':
-                add()
+                add();
                 break;
             case 'ignore':
-                ignore()
+                ignore();
                 break;
             case 'clear':
                 display!.innerHTML = ''
@@ -120,7 +138,15 @@ const SearchGenerator = () => {
         <div id="editModal" className= {styles.modal}>
             <div className={styles.modalContent}>
             <span onClick={()=>handleButtonClick('closeModal')} className= {styles.close}>&times;</span>
-            <p>test</p>
+            <table id="myTable">
+            <thead>
+                <tr>
+                    <th>Includes</th>
+                    <th>Excludes</th>
+                </tr>
+            </thead>
+                <tbody></tbody>
+            </table>
             </div>
         </div>
 {/*         <div className = {styles.Footer}>Footer</div>
